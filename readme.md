@@ -1,18 +1,18 @@
-# Java Parking Simulation (Thread Concurrency)
+# Java Threads: Parking Sim
 
-Una simulazione multi-thread di un sistema di gestione parcheggi sviluppata in Java.
+Progetto Java per la simulazione di un parcheggio con posti limitati gestito tramite thread.
 
-## Descrizione del Progetto
-Il software modella un parcheggio con una capacità limitata (4 posti) servito da più processi indipendenti (8 automobili) rappresentati da Thread. Il sistema gestisce l'accesso alla risorsa condivisa evitando conflitti e gestendo i tempi di attesa.
+## Descrizione
+Il programma modella l'accesso di più automobili a un numero ristretto di posti auto, gestendo la coda di attesa e la disponibilità della risorsa in tempo reale attraverso la sincronizzazione dei thread.
 
 
 
-## Logica di Funzionamento
-* **Gestione Capacità**: Se il parcheggio è pieno (`is_Full`), i nuovi thread in arrivo entrano in uno stato di attesa (`wait`) per un tempo casuale.
-* **Sincronizzazione**: Quando un'auto libera un posto, viene inviata una notifica (`notify()`) per risvegliare uno dei thread in attesa.
-* **Tempi Random**: Ogni auto rimane parcheggiata per un tempo variabile, simulando un comportamento reale.
+## Funzionamento dei Thread:
+* **Thread Auto**: Rappresenta un veicolo che tenta di occupare un posto. Se il parcheggio è pieno, il thread entra in attesa per un tempo variabile prima di effettuare un nuovo tentativo.
 
-## Tecnologie Utilizzate
-* **Java Concurrency**: Estensione della classe `Thread`.
-* **Monitor Objects**: Uso dei metodi nativi `wait()` e `notify()`.
-* **Resource Locking**: Gestione dello stato della risorsa condivisa `RisorsaParcheggio`.
+Il programma utilizza un monitor sulla classe `RisorsaParcheggio` per incrementare e decrementare il numero di posti occupati in modo thread-safe, notificando gli altri thread al momento della liberazione di un posto.
+
+## Tecnologie e Concetti
+* **Java Core**: Utilizzo della classe `Thread`.
+* **Sincronizzazione**: Gestione di risorse limitate e mutua esclusione su variabili condivise.
+* **Concurrency Handling**: Simulazione di tempi di attesa realistici tramite `Thread.sleep()` e `wait(timeout)`.
