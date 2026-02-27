@@ -7,7 +7,6 @@ Il programma gestisce l'accesso di cani e gatti a un ambulatorio seguendo regole
 
 
 
-[Image of priority queue diagram]
 
 
 ## Funzionamento dei Thread:
